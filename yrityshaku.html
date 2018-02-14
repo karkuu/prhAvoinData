@@ -3,33 +3,45 @@
 <head>
 <title>Yrityshaku</title>
 </head>
-<body>
 
+<body id="body">
+<script src="yrityshaku.js"></script>
 <pre>
 --------------------------------------------------------------------------------------------------
 YRITYSHAKU
 
-T‰m‰ tiedosto hakee PRH:n avoin data -palvelusta yritysten tietoja toimialaluokituksen
-mukaan. (http://avoindata.prh.fi/ytj.html)
+Haku PRH:n avoin data -palvelusta yritysten toimialaluokituksen mukaan.
+(http://avoindata.prh.fi/ytj.html)
 
-Toimialaluokitukset lˆytyv‰t osoitteesta:
+Toimialaluokitukset l√∂ytyv√§t osoitteesta:
 http://www.stat.fi/meta/luokitukset/toimiala/001-2008/62.html
 
-Haku tapahtuu muuttamalla tiedoston sis‰ll‰ olevia asetuksia. Tarkemmat ohjeet lˆytyv‰t, kun
-tiedosto avataan muistiossa/notepadissa. MS Word, tai OpenOffice Write saattavat rikkoa
-tiedoston.
+PRH:n palvelu sallii vain tietyn m√§√§r√§n hakuja/tietueita minuutissa. Ei siis kannata hakea
+kerralla esimerkiksi vaikka kaikkia Suomen teollisuus, tai rakennusalan yrityksi√§.
 
-PRH:n palvelu sallii vain tietyn m‰‰r‰n hakuja/tietueita minuutissa. Ei siis kannata hakea
-kerralla esimerkiksi vaikka kaikkia Suomen teollisuus, tai rakennusalan yrityksi‰.
-
-Haun j‰lkeen taulukko kannattaa kopioida vaikka MS Officeen. PRH:n palvelinta ei kannata
-"saunottaa" joka p‰iv‰, koska uusia yrityksi‰ ja p‰ivityksi‰ ei v‰ltt‰m‰tt‰ tule kovin usein.
+Haun j√§lkeen taulukko kannattaa kopioida vaikka MS Officeen. PRH:n palvelinta ei kannata
+"saunottaa" joka p√§iv√§, koska uusia yrityksi√§ ja p√§ivityksi√§ ei v√§ltt√§m√§tt√§ tule kovin usein.
 
 --------------------------------------------------------------------------------------------------
 </pre>
-<p id="data">Loading..</p>
 
-<script src="yrityshaku.js"></script>
+<table>
+<tr><td>Luokitus</td><td><input type="text" name="luokitus" id="luokitus" value="62010"> <a href="http://www.stat.fi/meta/luokitukset/toimiala/001-2008/index.html" target="_blank">Luokitukset</a></td></tr>
+<tr><td>Kaupunki:</td><td><input type="text" name="kaupunki" id="kaupunki"value="Jyv√§skyl√§"> AOY,OYJ,OY,OK,VOJ</td></tr>
+<tr><td>Yhti√∂muoto:</td><td><input type="text" name="yhtiomuoto" id="yhtiomuoto" value="OY"></td></tr>
+<tr><td>Tietueita:</td><td><input type="text" name="kpl" id="kpl" value="10"> Montako tietuetta haetaan.</td></tr>
+<tr><td>Aloitus tietue:</td><td><input type="text" name="tietue" id="tietue" value="0"></td></tr>
+<tr><td>Aloitus pvm:</td><td><input type="text" name="apvm" id="apvm" value="2000-01-01"></td></tr>
+<tr><td>Lopetus pvm:</td><td><input type="text" name="lpvm" id="lpvm" value="2018-01-01"></td></tr>
+<tr><td></td><td></td></tr>
+</table>
+<input type="button" value="Table" onclick="hae_tiedot(1);">
+<input type="button" value="CSV" onclick="hae_tiedot(2);">
+<input type="button" value="Kopioi CSV leikep√∂yd√§lle" onclick="leikepoyta();">
+
+
+<p id="data"></p>
+
 </body>
 </html>
 
