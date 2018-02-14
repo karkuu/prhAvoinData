@@ -46,6 +46,11 @@ function hae_tiedot(muoto)
 	var json_obj = JSON.parse(Get("http://avoindata.prh.fi/bis/v1?totalResults=true&maxResults="+a4+"&resultsFrom="+a5+"&registeredOffice="+encodeURI(a2)+"&businessLineCode="+a1+"&companyRegistrationFrom="+a6+"&companyRegistrationTo="+a7+"&companyForm="+a3+""));
 	var json_obj_yritystiedot;
 	var json_count = json_obj.totalResults;
+	
+	if (a4 > json_count)
+	{
+		a4 = json_count; 
+	}
 
 	if (muoto == 1) // Perustable
 	{
